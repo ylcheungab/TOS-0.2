@@ -1,0 +1,18 @@
+Tower of Sorcerer Ver. 1.0:
+	Planned:
+		1. have basic function:
+			1.1 shown in console
+			1.2 basic battle
+			1.3 monster setting
+			1.4 map setting
+			1.5 hero movement
+		2. Debugs
+		
+		todo:
+		1. connections between itempage, description, mapping
+		4. menu bar in ContentPage.java
+		5. Database
+		6. user interface?
+		
+		Remarks:
+		1. Map sorted by orders, unless specified, stairs moves from to neighbor level
