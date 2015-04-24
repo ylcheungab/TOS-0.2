@@ -1,18 +1,18 @@
 package items;
 
+
+import java.awt.Image;
+
 public class Items {
 	private String name;
-	private String picName;
-	private int iD;
+	private Image pic;
 	private String description;
 	
 	//Constructor
-	public Items(String name, String picName, int iD, 
-			String description) {
+	public Items(String name, Image pic, 		String description) {
 		super();
 		this.name = name;
-		this.picName = picName;
-		this.iD = iD;
+		this.pic = pic;
 		this.description = description;
 	}
 
@@ -22,9 +22,7 @@ public class Items {
 		int result = 1;
 		result = prime * result
 				+ ((description == null) ? 0 : description.hashCode());
-		result = prime * result + iD;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((picName == null) ? 0 : picName.hashCode());
 		return result;
 	}
 	
@@ -42,26 +40,18 @@ public class Items {
 				return false;
 		} else if (!description.equals(other.description))
 			return false;
-		if (iD != other.iD)
-			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
 		} else if (!name.equals(other.name))
-			return false;
-		if (picName == null) {
-			if (other.picName != null)
-				return false;
-		} else if (!picName.equals(other.picName))
 			return false;
 		return true;
 	}
 	
 	@Override
 	public String toString() {
-		return "Itemname=" + name + '\n' + "picName=" + picName + '\n' + "iD=" + iD
-				+ '\n' + "description=" + description
-				;
+		return "Items [name=" + name + ", pic=" + pic 
+				+ ", description=" + description + "]";
 	}
 	
 	//getters and setters of attributes
@@ -71,18 +61,15 @@ public class Items {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPicName() {
-		return picName;
+
+	public Image getPic() {
+		return pic;
 	}
-	public void setPicName(String picName) {
-		this.picName = picName;
+
+	public void setPic(Image pic) {
+		this.pic = pic;
 	}
-	public int getiD() {
-		return iD;
-	}
-	public void setiD(int iD) {
-		this.iD = iD;
-	}
+
 	public String getDescription() {
 		return description;
 	}

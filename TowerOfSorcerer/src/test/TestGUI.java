@@ -1,11 +1,12 @@
 package test;
 
+import gui.ContentPage;
 import gui.StartPage;
 
 public class TestGUI {
 
 	public static void main(String[] args) {
-		StartPage start = new StartPage();
+		ContentPage start = new ContentPage();
 	}
 
 }

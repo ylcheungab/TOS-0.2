@@ -1,10 +1,15 @@
 package items;
 
+import java.awt.Image;
 import java.util.ArrayList;
 
 public class ItemManager {
 	private ArrayList<Items> ItemManager;
 
+	public int count(){
+		return ItemManager.size();
+	}
+	
 	public ArrayList<Items> getItemManager() {
 		return ItemManager;
 	}
@@ -28,16 +33,20 @@ public class ItemManager {
 	}
 	
 	//Add new items into the list by constructing new item
-	public void addItem(String name, String picName, int iD, String description){
-		ItemManager.add(new Items(name, picName, iD, description));
+	public void addItem(String name, Image pic,  String description){
+		ItemManager.add(new Items(name, pic, description));
 	}
 	
-	//searching item using the itemID
-	public Items searchItems(int itemID){
-		for (Items i :ItemManager)
-			if (itemID == i.getiD())
+	//searching item using the item list place
+	public Items searchItems(int il){
+		return ItemManager.get(il);
+	}
+	//searching item using the item
+	public int searchItems(Items item){
+		for (int i = 0; i < ItemManager.size(); i++)
+			if (item.equals(ItemManager.get(i)))
 				return i;
-		return null;
+		return -1;
 	}
 	
 	//list out all item ID
@@ -45,7 +54,7 @@ public class ItemManager {
 	public String toString() {
 		String s = "";
 		for (Items i :ItemManager)
-			s = i + i.toString() + '\n';
+			s = i.toString() + '\n';
 		return "ItemManager" + '\n' + s;
 	}
 

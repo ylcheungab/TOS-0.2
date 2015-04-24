@@ -1,59 +1,43 @@
 package gui;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import items.Items;
 
-import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class DescPage extends JPanel implements ActionListener{
+public class DescPage extends JPanel {
 
-	public JTextField name;
-	public JTextArea description;
-	private JButton EditButton;
-	private JButton DeleteButton;
+	private JTextField name;
+	private JTextArea description;
 	
-	public DescPage() {
-		
+	public DescPage(Items item) {
 		JPanel namePanel = new JPanel();
-		name = new JTextField("AAA");
+		if (item == null)
+			name = new JTextField();
+		else
+			name = new JTextField(item.getName());
 		JLabel nameL = new JLabel("Name: ");
 		namePanel.add(nameL);
 		namePanel.add(name);
 		name.setEditable(false);
 		
 		JPanel descriptionPanel = new JPanel();
-		description = new JTextArea();
+		if (item == null)
+			description = new JTextArea();
+		else
+			description = new JTextArea(item.getDescription());
 		JLabel descriptionL = new JLabel("Description: ");
 		descriptionPanel.add(descriptionL);
 		descriptionPanel.add(description);
 		description.setEditable(false);
-		
-		EditButton = new JButton("Edit");
-		EditButton.addActionListener(this);
-		
-		DeleteButton = new JButton("Delete");
-		DeleteButton.addActionListener(this);
 				
-		setBorder(BorderFactory.createTitledBorder("Description"));
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		add(namePanel);
 		add(descriptionPanel);
-		add(EditButton);
-		add(DeleteButton);
 		setVisible(true);
-	}
-	
-	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 	
 

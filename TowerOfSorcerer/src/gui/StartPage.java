@@ -37,6 +37,7 @@ public class StartPage extends JDialog implements ActionListener {
 		ButtonPanel.add(LoadButton);
 
 		// packing
+		setLayout(new BorderLayout());
 		getContentPane().add(BorderLayout.NORTH, intromsg);
 		getContentPane().add(BorderLayout.CENTER, ButtonPanel);
 		pack();
